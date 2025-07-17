@@ -52,3 +52,5 @@ group :development, :test do
 end
 
 gem 'blueprinter'
+
+gem 'rack-cors'

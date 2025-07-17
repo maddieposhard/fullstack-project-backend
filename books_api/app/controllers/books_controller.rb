@@ -3,17 +3,17 @@ class BooksController < ApplicationController
 
     def index
         books = Book.all
-        render json: books.as_json(only: [:id, :title, :author, :read]), status: :ok
+        render json: BookBlueprint.render(books), status: :ok
     end
 
     def show
-        render json: @book.as_json(only: [:id, :title, :author, :read]), status: :ok
+        render json: BookBlueprint.render(@book), status: :ok
     end
 
     def create
         book = Book.new(book_params)
         if book.save
-          render json: book.as_json(only: [:id, :title, :author, :read]), status: :created
+          render json: BookBlueprint.render(book), status: :created
         else
           render json: book.errors, status: :unprocessable_entity
         end
@@ -21,7 +21,7 @@ class BooksController < ApplicationController
       
       def update
         if @book.update(book_params)
-          render json: @book.as_json(only: [:id, :title, :author, :read]), status: :ok
+          render json:BookBlueprint.render(@book), status: :ok
         else
           render json: @book.errors, status: :unprocessable_entity
         end

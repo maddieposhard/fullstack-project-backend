@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+
     before_action :authenticate_request, except: [:index, :show]
     before_action :set_book, only: [:show, :update, :destroy]
 
@@ -10,8 +11,6 @@ class BooksController < ApplicationController
     def show
         render json: BookBlueprint.render(@book), status: :ok
     end
-
-    puts "Current user: #{@current_user.inspect}"
 
     def create
         book = @current_user.books.new(book_params)
@@ -33,6 +32,11 @@ class BooksController < ApplicationController
     def destroy
         @book.destroy
         head :no_content
+    end
+
+    def my_books
+        puts "Current user: #{@current_user.inspect}"
+        render json: @current_user.books, status: :ok
     end
 
     private

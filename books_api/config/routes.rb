@@ -8,11 +8,13 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  resources :books
 
   Rails.application.routes.draw do
+    get '/my_books', to: 'books#my_books'
+
     post '/login', to: 'sessions#create'
     resources :users, only: [:create]
     resources :books
   end
+
 end

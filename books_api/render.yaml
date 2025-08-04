@@ -1,12 +1,12 @@
 databases:
-    - name: books
-      databaseName: books
-      user: books
+    - name: booksappmaddie
+      databaseName: booksappmaddie
+      user: booksappmaddie
       plan: free
 
 services:
     - type: web
-      name: books
+      name: booksappmaddie
       runtime: ruby
       plan: free
       buildCommand: './bin/render-build.sh'
@@ -14,7 +14,7 @@ services:
       envVars:
           - key: DATABASE_URL
             fromDatabase:
-                name: books
+                name: booksappmaddie
                 property: connectionString
           - key: RAILS_MASTER_KEY
             sync: false

@@ -9,8 +9,8 @@ services:
       name: booksappmaddie
       runtime: ruby
       plan: free
-      buildCommand: './bin/render-build.sh'
-      startCommand: './bin/rails server'
+      buildCommand: './books_api/bin/render-build.sh'
+      startCommand: './books_api/bin/rails server'
       envVars:
           - key: DATABASE_URL
             fromDatabase:

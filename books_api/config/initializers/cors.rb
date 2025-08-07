@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
    allow do
-     origins "*"
+     origins "http://localhost:4200", "https://fullstack-project-frontend-three.vercel.app"
 
      resource "*",
        headers: :any,
@@ -16,14 +16,14 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
  end
 
 
- Rails.application.config.middleware.insert_before 0, Rack::Cors do
-    allow do
-      origins 'http://localhost:4200'  # your Angular dev server
+#  Rails.application.config.middleware.insert_before 0, Rack::Cors do
+#     allow do
+#       origins 'http://localhost:4200'  # your Angular dev server
   
-      resource '*',
-        headers: :any,
-        methods: [:get, :post, :put, :patch, :delete, :options, :head],
-        credentials: false
-    end
-  end
+#       resource '*',
+#         headers: :any,
+#         methods: [:get, :post, :put, :patch, :delete, :options, :head],
+#         credentials: false
+#     end
+#   end
   

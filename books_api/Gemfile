@@ -36,6 +36,7 @@ gem "thruster", require: false
 # gem "rack-cors"
 
 group :production do
+  gem 'cloudinary'
   gem 'pg'
 end
 
